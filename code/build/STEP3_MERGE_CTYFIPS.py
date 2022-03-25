@@ -7,10 +7,10 @@ import os
 import pandas as pd
 
 # set paths and directories
-IN_PATH = os.path.join("data", "US_FIPS_Codes.csv")
-IN_PATH_2 = os.path.join("data", "COUNTY_YEARLY.csv")
-IN_PATH_AG = os.path.join("data", "COUNTY_AGGREGATE.csv")
-OUTPUT_DIR = "data"
+IN_PATH = os.path.join("data/raw", "US_FIPS_Codes.csv")
+IN_PATH_2 = os.path.join("data/clean", "COUNTY_YEARLY.csv")
+IN_PATH_AG = os.path.join("data/clean", "COUNTY_AGGREGATE.csv")
+OUTPUT_DIR = "data/clean"
 FINAL_MERGE_PATH = os.path.join(OUTPUT_DIR, "CTY_Fips_Merge.csv")
 FINAL_MERGE_PATH_AG = os.path.join(OUTPUT_DIR, "COUNTY_AGGREGATE_FIPS.csv")
 

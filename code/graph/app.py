@@ -14,10 +14,10 @@ from dash.exceptions import PreventUpdate
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
 ###### Set paths and directories
-IN_PATH = os.path.join("data", "COUNTY_AGGREGATE_FIPS.csv")
-IN_PATH_JSON = os.path.join("data", "geojson-counties-fips.json")
-IN_PATH_2 = os.path.join("data", "ST_Agg_Fips_Merge.csv")
-IN_PATH_JSON_2 = os.path.join("data", "us-states.json")
+IN_PATH = os.path.join("data/clean", "COUNTY_AGGREGATE_FIPS.csv")
+IN_PATH_JSON = os.path.join("data/raw", "geojson-counties-fips.json")
+IN_PATH_2 = os.path.join("data/clean", "ST_Agg_Fips_Merge.csv")
+IN_PATH_JSON_2 = os.path.join("data/raw", "us-states.json")
 
 ###### takes the appropriate dataframes and saves them into objects for building choropleths:
 
