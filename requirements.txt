@@ -1,4 +1,7 @@
 ###### Requirements without Version Specifiers ######
+os
 numpy
 pandas
 plotly.express
+dash
+gunicorn
