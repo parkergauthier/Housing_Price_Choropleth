@@ -1,9 +1,10 @@
-###### Import modules
+# Import modules
 import os
 import pandas as pd
 import plotly.express as px
 import json
 
+import gunicorn  # (version 20.1.0)
 
 import dash  # (version 1.8.0)
 from dash import dcc
@@ -13,13 +14,13 @@ from dash.exceptions import PreventUpdate
 
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
-###### Set paths and directories
+# Set paths and directories
 IN_PATH = os.path.join("data/clean", "COUNTY_AGGREGATE_FIPS.csv")
 IN_PATH_JSON = os.path.join("data/raw", "geojson-counties-fips.json")
 IN_PATH_2 = os.path.join("data/clean", "ST_Agg_Fips_Merge.csv")
 IN_PATH_JSON_2 = os.path.join("data/raw", "us-states.json")
 
-###### takes the appropriate dataframes and saves them into objects for building choropleths:
+# takes the appropriate dataframes and saves them into objects for building choropleths:
 
 # State level data:
 state_fips = pd.read_csv(IN_PATH_2, dtype={"FIPS": str})
@@ -31,7 +32,7 @@ county_fips = pd.read_csv(IN_PATH, dtype={"FIPS": str})
 with open(IN_PATH_JSON) as response:
     counties = json.load(response)
 
-###### Making app
+# Making app
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 
@@ -40,7 +41,8 @@ app.layout = html.Div(
         html.Div([dcc.Graph(id="the_graph")]),
         html.Div(
             [
-                dcc.Input(id="input_state", type="text", value="USA", required=True),
+                dcc.Input(id="input_state", type="text",
+                          value="USA", required=True),
                 html.Button(id="go_button", n_clicks=0, children="LETS GOOOO"),
                 html.Div(id="output_state"),
             ],
@@ -76,7 +78,8 @@ def update_output(num_clicks, val_selected):
             title="Percent Change in House Values from 2010-2019 by State",
         )
         fig.update_layout(
-            hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+            hoverlabel=dict(bgcolor="black", font_size=16,
+                            font_family="Rockwell"),
             margin={"r": 0, "t": 50, "l": 0, "b": 0},
         )
         return (
@@ -101,7 +104,8 @@ def update_output(num_clicks, val_selected):
         )
         fig.update_geos(fitbounds="locations", visible=False)
         fig.update_layout(
-            hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+            hoverlabel=dict(bgcolor="black", font_size=16,
+                            font_family="Rockwell"),
             margin={"r": 0, "t": 50, "l": 0, "b": 0},
         )
         return (
@@ -111,7 +115,8 @@ def update_output(num_clicks, val_selected):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=True, host='0.0.0.0', port=8050)
+
 # # create exception-handling variables
 # states_list = county_fips['STNAME'].unique()
 # # print(states_list)
