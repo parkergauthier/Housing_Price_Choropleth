@@ -51,6 +51,17 @@ server = app.server
 # applying layout
 app.layout = html.Div(
     [
+        html.Div(
+            [
+                dcc.Dropdown(
+                    options=["Percent Change", "Median Price"],
+                    value="Percent Change",
+                    id="dropdown",
+                    clearable=False,
+                    className="string",
+                )
+            ]
+        ),
         html.Div([dcc.Graph(id="the_graph")]),
         html.Div(
             [
@@ -60,13 +71,6 @@ app.layout = html.Div(
                     value="USA",
                     required=True,
                     autoComplete="on",
-                ),
-                dcc.Dropdown(
-                    options=["Percent Change", "Median Price"],
-                    value="Percent Change",
-                    id="dropdown",
-                    clearable=False,
-                    className="string",
                 ),
                 html.Button(id="go_button", n_clicks=0, children="GO!"),
                 html.Div(id="output_state"),
@@ -138,7 +142,7 @@ def update_output(num_clicks, drops, val_selected):
                 margin={"r": 0, "t": 50, "l": 0, "b": 0},
             )
             return (
-                "Cool right!? Try another one :)",
+                "Want to see pricing information? Try the dropdown menu at the top then hit GO!.",
                 fig,
             )
         # reverts back to state level map if there is an invalid input
