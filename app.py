@@ -81,7 +81,7 @@ app.layout = html.Div(
 )
 
 
-@app.callback(
+@ app.callback(
     [
         Output("output_state", "children"),
         Output(component_id="the_graph", component_property="figure"),
@@ -112,7 +112,8 @@ def update_output(num_clicks, drops, val_selected):
                 title="Percent Change in House Values from 2010-2019 by State",
             )
             fig.update_layout(
-                hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+                hoverlabel=dict(bgcolor="black", font_size=16,
+                                font_family="Rockwell"),
                 margin={"r": 0, "t": 50, "l": 0, "b": 0},
             )
             return (
@@ -138,7 +139,8 @@ def update_output(num_clicks, drops, val_selected):
             )
             fig.update_geos(fitbounds="locations", visible=False)
             fig.update_layout(
-                hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+                hoverlabel=dict(bgcolor="black", font_size=16,
+                                font_family="Rockwell"),
                 margin={"r": 0, "t": 50, "l": 0, "b": 0},
             )
             return (
@@ -161,7 +163,8 @@ def update_output(num_clicks, drops, val_selected):
                 title="Percent Change in House Values from 2010-2019 by State",
             )
             fig.update_layout(
-                hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+                hoverlabel=dict(bgcolor="black", font_size=16,
+                                font_family="Rockwell"),
                 margin={"r": 0, "t": 50, "l": 0, "b": 0},
             )
             return (
@@ -187,7 +190,8 @@ def update_output(num_clicks, drops, val_selected):
                 title="Year-Over-Year Change in Weighted Mean Price per State",
             )
             fig.update_layout(
-                hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+                hoverlabel=dict(bgcolor="black", font_size=16,
+                                font_family="Rockwell"),
                 margin={"r": 0, "t": 50, "l": 0, "b": 0},
             )
             return (
@@ -212,7 +216,8 @@ def update_output(num_clicks, drops, val_selected):
             )
             fig.update_geos(fitbounds="locations", visible=False)
             fig.update_layout(
-                hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+                hoverlabel=dict(bgcolor="black", font_size=16,
+                                font_family="Rockwell"),
                 margin={"r": 0, "t": 50, "l": 0, "b": 0},
             )
             return (
@@ -236,7 +241,8 @@ def update_output(num_clicks, drops, val_selected):
                 title="Year-Over-Year Change in Weighted Mean Price per State",
             )
             fig.update_layout(
-                hoverlabel=dict(bgcolor="black", font_size=16, font_family="Rockwell"),
+                hoverlabel=dict(bgcolor="black", font_size=16,
+                                font_family="Rockwell"),
                 margin={"r": 0, "t": 50, "l": 0, "b": 0},
             )
             return (
@@ -244,6 +250,10 @@ def update_output(num_clicks, drops, val_selected):
                 fig,
             )
 
+
+# loading screen?
+app.css.append_css(
+    {"external_url": "https://codepen.io/chriddyp/pen/brPBPO.css"})
 
 if __name__ == "__main__":
     app.run_server(debug=True, host="0.0.0.0", port=8050)
