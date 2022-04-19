@@ -1,4 +1,7 @@
 ###### Requirements without Version Specifiers ######
-numpy
-pandas
-plotly.express
+numpy==1.22.2
+pandas==1.4.2
+plotly==5.6.0
+plotly-express==0.4.1
+dash==2.3.1
+gunicorn==20.0.4

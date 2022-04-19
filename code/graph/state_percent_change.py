@@ -8,8 +8,8 @@ import plotly.express as px
 import json
 
 # sets paths and directories
-IN_PATH = os.path.join("data", "ST_Agg_Fips_Merge.csv")
-IN_PATH_JSON = os.path.join("data", "us-states.json")
+IN_PATH = os.path.join("data", "clean", "ST_Agg_Fips_Merge.csv")
+IN_PATH_JSON = os.path.join("data", "raw", "us-states.json")
 
 # takes the appropriate dataframe and saves it into an object.
 state_fips = pd.read_csv(IN_PATH, dtype={"FIPS": str})

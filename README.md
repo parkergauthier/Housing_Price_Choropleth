@@ -1,5 +1,9 @@
 # Housing_Price_Chloropleth
 
+This is our webpage: https://amal-kadri.github.io/Housing_Price_Choropleth_app/
+
+The app itself is here: https://house-price-choro.herokuapp.com/
+
 ## Instructions - How to use this code
 
 ### Preliminary: 
